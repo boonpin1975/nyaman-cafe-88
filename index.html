@@ -19,13 +19,16 @@
 </head>
 <body>
 
-    <!-- Announcement Bar -->
+    <!-- Ambient Gold Sparkles Particles Container -->
+    <div class="particles-bg" id="particlesBg"></div>
+
+    <!-- Announcement Bar with Live Kitchen Status -->
     <div class="announcement-bar">
         <div class="container announcement-content">
-            <span><i class="fa-solid fa-fire-flame-curry me-1"></i> <strong>Savor Authentic Thai Flavours in Balik Pulau!</strong> Pork-Free • Fresh Herbs • Open Today till 10:00 PM</span>
+            <span class="status-live"><i class="fa-solid fa-circle-dot text-green"></i> <strong>Kitchen Open Now</strong> • Closing in <span id="kitchenCountdown">5h 45m</span> • Balik Pulau, Penang</span>
             <div class="announcement-contacts">
                 <a href="tel:+60123456789"><i class="fa-solid fa-phone"></i> +60 12-345 6789</a>
-                <a href="#reservation" class="btn-sm-gold"><i class="fa-regular fa-calendar-check"></i> Book Table</a>
+                <a href="#reservation" class="btn-sm-gold"><i class="fa-regular fa-calendar-check"></i> Reserve Table</a>
             </div>
         </div>
     </div>
@@ -44,6 +47,7 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">Our Story</a>
+                <a href="#matchmaker" class="nav-link text-gold"><i class="fa-solid fa-wand-magic-sparkles"></i> Flavor Finder</a>
                 <a href="#signatures" class="nav-link">Signatures</a>
                 <a href="#menu" class="nav-link">Digital Menu</a>
                 <a href="#reviews" class="nav-link">Reviews</a>
@@ -51,9 +55,15 @@
             </nav>
 
             <div class="nav-actions">
+                <button class="btn btn-cart-icon" id="cartToggleBtn" aria-label="View Order Cart">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+
                 <a href="#reservation" class="btn btn-gold glow-effect">
                     <i class="fa-solid fa-utensils"></i> Reserve Table
                 </a>
+                
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -68,30 +78,30 @@
         
         <div class="container hero-content">
             <div class="hero-badge">
-                <span class="badge-dot"></span> Balik Pulau's Favorite Authentic Thai Haven
+                <span class="badge-dot"></span> Balik Pulau's Premier Authentic Thai Kitchen
             </div>
             
             <h1 class="hero-title">
-                Sensational <span class="text-gold">Thai Flavours</span>,<br>
+                Sensational <span class="text-gold shimmer-text">Thai Flavours</span>,<br>
                 Crafted with Passion & Spice.
             </h1>
             
             <p class="hero-subtitle">
-                Welcome to <strong>Nyaman Cafe 88</strong>. Immerse your senses in aromatic Tom Yum, velvety Green Curries, and sizzling Pad Thai—cooked fresh daily using traditional Thai spices and Balik Pulau's finest local ingredients.
+                Welcome to <strong>Nyaman Cafe 88</strong>. Immerse your senses in aromatic Tom Yum, velvety Green Curries, and sizzling Pad Thai—cooked fresh daily using traditional Thai spices and Balik Pulau's finest local herbs.
             </p>
 
             <div class="hero-tags">
-                <span><i class="fa-solid fa-shield-halal"></i> 100% Pork-Free</span>
-                <span><i class="fa-solid fa-leaf"></i> Fresh Farm Herbs</span>
-                <span><i class="fa-solid fa-pepper-hot"></i> Adjustable Spice Levels</span>
+                <span><i class="fa-solid fa-shield-halal"></i> 100% Pork-Free Kitchen</span>
+                <span><i class="fa-solid fa-leaf"></i> Fresh Local Farm Herbs</span>
+                <span><i class="fa-solid fa-pepper-hot"></i> Custom Spice Levels</span>
             </div>
 
             <div class="hero-cta-group">
-                <a href="#menu" class="btn btn-gold btn-lg">
+                <a href="#menu" class="btn btn-gold btn-lg glow-effect">
                     <i class="fa-solid fa-book-open"></i> Explore Digital Menu
                 </a>
-                <a href="#reservation" class="btn btn-outline btn-lg">
-                    <i class="fa-solid fa-calendar-days"></i> Reserve a Table
+                <a href="#matchmaker" class="btn btn-outline btn-lg">
+                    <i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Take Flavor Quiz
                 </a>
                 <a href="https://wa.me/60123456789?text=Hi%20Nyaman%20Cafe%2088,%20I%20want%20to%20order/reserve!" target="_blank" class="btn btn-whatsapp btn-lg">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp Booking
@@ -112,7 +122,7 @@
                 <div class="stat-divider"></div>
                 <div class="stat-item">
                     <span class="stat-number">100%</span>
-                    <span class="stat-label">Pork-Free Kitchen</span>
+                    <span class="stat-label">Pork-Free Guarantee</span>
                 </div>
             </div>
         </div>
@@ -129,7 +139,7 @@
                     <div class="image-card badge-card glass-card">
                         <i class="fa-solid fa-award icon-gold"></i>
                         <div>
-                            <h4>Authentic Thai Chefs</h4>
+                            <h4>Master Thai Chefs</h4>
                             <p>Hand-crafted broth simmered for 6 hours daily</p>
                         </div>
                     </div>
@@ -139,10 +149,10 @@
                     <span class="section-tagline">OUR STORY & PASSION</span>
                     <h2 class="section-title">Where Thai Culinary Art Meets <span class="text-gold">Balik Pulau Hospitality</span></h2>
                     <p class="section-description">
-                        Nestled in the lush, serene town of Balik Pulau, <strong>Nyaman Cafe 88</strong> was born out of a love for genuine, uncompromised Thai food. "Nyaman" reflects comfort, warmth, and pure satisfaction—a feeling we deliver with every dish.
+                        Nestled in the lush, serene countryside of Balik Pulau, <strong>Nyaman Cafe 88</strong> was born out of a passion for genuine, uncompromised Thai food. "Nyaman" reflects warmth, comfort, and pure satisfaction—a feeling served in every dish.
                     </p>
                     <p class="section-description">
-                        Our master chefs source fresh galangal, kaffir lime, krapow basil, and chili directly to ensure each bowl of Tom Yum vibrates with authentic sour, spicy, and savory harmony.
+                        Our master chefs source fresh galangal, kaffir lime, holy basil, and Thai chilies directly to ensure each bowl of Tom Yum vibrates with authentic sour, spicy, and savory harmony.
                     </p>
 
                     <div class="features-list">
@@ -150,7 +160,7 @@
                             <div class="feature-icon"><i class="fa-solid fa-pepper-hot"></i></div>
                             <div>
                                 <h5>Rich Homemade Pastes</h5>
-                                <p>Curry pastes pounded daily from scratch using fresh roots & chili.</p>
+                                <p>Curry pastes pounded daily from scratch using fresh roots & spices.</p>
                             </div>
                         </div>
                         <div class="feature-box">
@@ -173,8 +183,63 @@
         </div>
     </section>
 
+    <!-- NEW: Interactive Thai Flavor Matchmaker Quiz -->
+    <section class="matchmaker-section section-padding bg-darker" id="matchmaker">
+        <div class="container">
+            <div class="glass-card quiz-wrapper">
+                <div class="section-header text-center">
+                    <span class="section-tagline"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> INTERACTIVE FLAVOR FINDER</span>
+                    <h2 class="section-title">Not Sure What to Order? <span class="text-gold">Find Your Match</span></h2>
+                    <p class="section-subtitle">Answer 3 quick questions and let our Thai Flavor Matchmaker recommend the perfect dish for your palate!</p>
+                </div>
+
+                <div class="quiz-container" id="quizContainer">
+                    <!-- Step 1 -->
+                    <div class="quiz-step active" data-step="1">
+                        <h4 class="quiz-question">1. What's your dining mood today?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-opt-btn" data-key="mood" data-val="comfort"><i class="fa-solid fa-bowl-food"></i> Hearty & Comforting</button>
+                            <button class="quiz-opt-btn" data-key="mood" data-val="spicy"><i class="fa-solid fa-fire-flame-curry"></i> Zesty & Fiery</button>
+                            <button class="quiz-opt-btn" data-key="mood" data-val="sweet"><i class="fa-solid fa-ice-cream"></i> Light & Sweet</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="quiz-step" data-step="2">
+                        <h4 class="quiz-question">2. Preferred dish base?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-opt-btn" data-key="base" data-val="soups"><i class="fa-solid fa-mortar-pestle"></i> Rich Broth / Curry</button>
+                            <button class="quiz-opt-btn" data-key="base" data-val="noodles"><i class="fa-solid fa-plate-wheat"></i> Wok Noodles / Fried Rice</button>
+                            <button class="quiz-opt-btn" data-key="base" data-val="seafood"><i class="fa-solid fa-fish"></i> Fresh Seafood / Meat</button>
+                            <button class="quiz-opt-btn" data-key="base" data-val="desserts"><i class="fa-solid fa-glass-water"></i> Dessert / Beverage</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="quiz-step" data-step="3">
+                        <h4 class="quiz-question">3. Your spice tolerance?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-opt-btn" data-key="spice" data-val="0"><i class="fa-solid fa-leaf text-green"></i> Mild (Zero Spice)</button>
+                            <button class="quiz-opt-btn" data-key="spice" data-val="2"><i class="fa-solid fa-pepper-hot text-gold"></i> Medium Thai Heat</button>
+                            <button class="quiz-opt-btn" data-key="spice" data-val="3"><i class="fa-solid fa-fire text-red"></i> Extra Spicy (Chili Lover)</button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result Card -->
+                    <div class="quiz-result" id="quizResult" style="display: none;">
+                        <span class="badge-dot"></span> <span class="text-gold">YOUR PERFECT MATCH IS:</span>
+                        <div class="quiz-recommend-card" id="recommendCard">
+                            <!-- Populated via JS -->
+                        </div>
+                        <button class="btn btn-outline btn-sm mt-3" id="quizResetBtn"><i class="fa-solid fa-rotate-left"></i> Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Signature Highlights Section -->
-    <section class="signatures-section section-padding bg-darker" id="signatures">
+    <section class="signatures-section section-padding" id="signatures">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-tagline">MUST-TRY DELICACIES</span>
@@ -198,33 +263,33 @@
                             <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i></span>
                         </div>
                         <h3 class="dish-title">Royal Tom Yum Goong</h3>
-                        <p class="dish-desc">Aromatic hot & sour soup simmered with giant tiger prawns, lemongrass, galangal, kaffir lime, and chili oil.</p>
+                        <p class="dish-desc">Aromatic hot & sour soup simmered with giant tiger prawns, lemongrass, galangal, kaffir lime, and homemade chili oil.</p>
                         <div class="dish-footer">
                             <span class="dish-price">RM 28.00</span>
-                            <button class="btn-icon add-to-order-btn" data-name="Royal Tom Yum Goong" data-price="28.00"><i class="fa-solid fa-plus"></i></button>
+                            <button class="btn-icon add-to-cart-btn" data-id="tom-yum" title="Add to Cart"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Signature 2 -->
                 <div class="dish-card signature-card">
-                    <div class="dish-badge">Chef's Choice</div>
+                    <div class="dish-badge">Royal Special</div>
                     <div class="dish-img-wrapper">
-                        <img src="images/pad_thai_prawn.png" alt="Signature Pad Thai Prawn" loading="lazy">
+                        <img src="images/thai_seafood_platter.png" alt="Royal Thai Seafood Platter" loading="lazy">
                         <div class="dish-overlay">
-                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="pad-thai">Quick View</button>
+                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="seafood-platter">Quick View</button>
                         </div>
                     </div>
                     <div class="dish-body">
                         <div class="dish-meta">
-                            <span class="dish-category">Noodles</span>
-                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i></span>
+                            <span class="dish-category">Grand Feast</span>
+                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i></span>
                         </div>
-                        <h3 class="dish-title">Signature Pad Thai Goong</h3>
-                        <p class="dish-desc">Wok-hei stir-fried rice noodles in tangy tamarind sauce, topped with jumbo grilled prawns, crushed peanuts & lime.</p>
+                        <h3 class="dish-title">Royal Seafood Feast Platter</h3>
+                        <p class="dish-desc">Opulent banquet platter featuring grilled river prawns, steamed garlic butter crab, stuffed squid, and authentic dipping sauces.</p>
                         <div class="dish-footer">
-                            <span class="dish-price">RM 18.90</span>
-                            <button class="btn-icon add-to-order-btn" data-name="Signature Pad Thai Goong" data-price="18.90"><i class="fa-solid fa-plus"></i></button>
+                            <span class="dish-price">RM 78.00</span>
+                            <button class="btn-icon add-to-cart-btn" data-id="seafood-platter" title="Add to Cart"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -233,21 +298,21 @@
                 <div class="dish-card signature-card">
                     <div class="dish-badge">Customer Favorite</div>
                     <div class="dish-img-wrapper">
-                        <img src="images/green_curry_chicken.png" alt="Thai Green Curry Chicken" loading="lazy">
+                        <img src="images/mango_sticky_rice.png" alt="Authentic Mango Sticky Rice" loading="lazy">
                         <div class="dish-overlay">
-                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="green-curry">Quick View</button>
+                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="mango-sticky-rice">Quick View</button>
                         </div>
                     </div>
                     <div class="dish-body">
                         <div class="dish-meta">
-                            <span class="dish-category">Curry</span>
-                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i></span>
+                            <span class="dish-category">Dessert</span>
+                            <span class="dish-spicy"><i class="fa-solid fa-leaf text-green"></i> Mild</span>
                         </div>
-                        <h3 class="dish-title">Thai Green Curry Chicken</h3>
-                        <p class="dish-desc">Velvety coconut green curry cooked with tender chicken, Thai pea eggplants, and fresh sweet basil leaves.</p>
+                        <h3 class="dish-title">Authentic Mango Sticky Rice</h3>
+                        <p class="dish-desc">Ripe golden Thai honey mango served over warm coconut glutinous rice, finished with toasted mung beans and rich coconut cream.</p>
                         <div class="dish-footer">
-                            <span class="dish-price">RM 22.00</span>
-                            <button class="btn-icon add-to-order-btn" data-name="Thai Green Curry Chicken" data-price="22.00"><i class="fa-solid fa-plus"></i></button>
+                            <span class="dish-price">RM 13.00</span>
+                            <button class="btn-icon add-to-cart-btn" data-id="mango-sticky-rice" title="Add to Cart"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -256,7 +321,7 @@
     </section>
 
     <!-- Digital Interactive Menu Section -->
-    <section class="menu-section section-padding" id="menu">
+    <section class="menu-section section-padding bg-darker" id="menu">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-tagline">EXPLORE OUR DISHES</span>
@@ -288,7 +353,7 @@
     </section>
 
     <!-- Table Reservation Section -->
-    <section class="reservation-section section-padding bg-darker" id="reservation">
+    <section class="reservation-section section-padding" id="reservation">
         <div class="container">
             <div class="reservation-wrapper glass-card">
                 <div class="grid grid-2-col items-center">
@@ -389,7 +454,7 @@
     </section>
 
     <!-- Reviews & Testimonials -->
-    <section class="reviews-section section-padding" id="reviews">
+    <section class="reviews-section section-padding bg-darker" id="reviews">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-tagline">HAPPY DINERS</span>
@@ -447,7 +512,7 @@
     </section>
 
     <!-- Location & Contact Section -->
-    <section class="location-section section-padding bg-darker" id="location">
+    <section class="location-section section-padding" id="location">
         <div class="container">
             <div class="grid grid-2-col items-center">
                 <div class="location-info">
@@ -535,6 +600,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">Our Story</a></li>
+                    <li><a href="#matchmaker">Flavor Finder</a></li>
                     <li><a href="#signatures">Signatures</a></li>
                     <li><a href="#menu">Digital Menu</a></li>
                     <li><a href="#reservation">Table Booking</a></li>
@@ -556,7 +622,40 @@
         </div>
     </footer>
 
-    <!-- Dish Modal -->
+    <!-- Interactive Slide-Out Order Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay">
+        <div class="cart-drawer glass-card">
+            <div class="cart-header">
+                <h3><i class="fa-solid fa-basket-shopping text-gold"></i> Your Thai Feast Cart</h3>
+                <button class="cart-close" id="cartCloseBtn">&times;</button>
+            </div>
+
+            <div class="cart-body" id="cartItemsContainer">
+                <!-- Cart items dynamically rendered -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-summary-line">
+                    <span>Subtotal:</span>
+                    <strong id="cartSubtotal">RM 0.00</strong>
+                </div>
+                <div class="cart-summary-line text-muted" style="font-size:0.82rem;">
+                    <span>Service & SST (6%):</span>
+                    <span id="cartTax">RM 0.00</span>
+                </div>
+                <div class="cart-summary-line total-line">
+                    <span>Estimated Total:</span>
+                    <strong class="text-gold" id="cartTotal">RM 0.00</strong>
+                </div>
+
+                <a href="#" id="cartSendWhatsappBtn" target="_blank" class="btn btn-gold btn-block mt-3 disabled">
+                    <i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dish Detail Modal -->
     <div class="modal-overlay" id="dishModal">
         <div class="modal-content glass-card">
             <button class="modal-close" id="modalClose">&times;</button>

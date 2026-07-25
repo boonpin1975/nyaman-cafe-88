@@ -1,5 +1,5 @@
 /**
- * Nyaman Cafe 88 @ Balik Pulau - Dynamic Frontend Controller
+ * Nyaman Cafe 88 @ Balik Pulau - Dynamic Frontend Controller & Interactive Cart
  */
 
 // Food Catalog Data
@@ -14,6 +14,17 @@ const menuDishes = [
         image: "images/tom_yum_goong.png",
         desc: "Aromatic hot & sour soup simmered with giant tiger prawns, lemongrass, galangal, kaffir lime, mushrooms, and homemade Thai chili oil paste.",
         ingredients: "Tiger Prawns, Lemongrass, Galangal, Kaffir Lime, Straw Mushrooms, Chili Oil, Fish Sauce, Lime Juice, Fresh Cilantro."
+    },
+    {
+        id: "seafood-platter",
+        title: "Royal Seafood Feast Platter",
+        category: "seafood",
+        price: 78.00,
+        spicy: 2,
+        badge: "Grand Signature",
+        image: "images/thai_seafood_platter.png",
+        desc: "Opulent banquet platter featuring grilled river prawns, steamed garlic butter crab, stuffed squid, grilled fish, and authentic chili dipping sauces.",
+        ingredients: "Giant River Prawns, Blue Crab, Fresh Squid, Seabass Fillet, Thai Seafood Sauce, Fresh Lime, Roasted Chilies."
     },
     {
         id: "pad-thai",
@@ -77,7 +88,7 @@ const menuDishes = [
         price: 14.00,
         spicy: 3,
         badge: "Authentic",
-        image: "images/tom_yum_goong.png",
+        image: "images/som_tum_salad.png",
         desc: "Crispy shredded green papaya pounded in a mortar with bird's eye chili, garlic, cherry tomatoes, yardlong beans, lime, and crushed peanuts.",
         ingredients: "Green Papaya, Bird's Eye Chili, Garlic, Cherry Tomatoes, Palm Sugar, Lime, Dried Shrimp, Roasted Peanuts."
     },
@@ -87,7 +98,7 @@ const menuDishes = [
         category: "seafood",
         price: 48.00,
         spicy: 2,
-        badge: "Grand Signature",
+        badge: "Chef Specialty",
         image: "images/hero_thai_feast.png",
         desc: "Whole fresh Penang seabass steamed to perfection with zesty garlic, fresh lime juice, lemongrass, and fiery green chili broth.",
         ingredients: "Whole Fresh Seabass, Garlic, Fresh Lime Juice, Green Chili, Lemongrass, Coriander Root, Fish Broth."
@@ -105,9 +116,14 @@ const menuDishes = [
     }
 ];
 
+// Cart State
+let cart = [];
+
 document.addEventListener("DOMContentLoaded", () => {
     initNavigation();
     initMenuRender();
+    initCartSystem();
+    initFlavorQuiz();
     initReservationForm();
     initModalControls();
 });
@@ -179,7 +195,7 @@ function initMenuRender() {
         }
 
         filtered.forEach(dish => {
-            const spicyIcons = Array(dish.spicy).fill('<i class="fa-solid fa-pepper-hot text-red"></i>').join('');
+            const spicyIcons = Array(dish.spicy).fill('<i class="fa-solid fa-pepper-hot text-red"></i>').join('') || '<span class="text-green">Mild</span>';
             
             const card = document.createElement("div");
             card.className = "dish-card";
@@ -200,7 +216,7 @@ function initMenuRender() {
                     <p class="dish-desc">${dish.desc}</p>
                     <div class="dish-footer">
                         <span class="dish-price">RM ${dish.price.toFixed(2)}</span>
-                        <button class="btn-icon quick-view-trigger" data-id="${dish.id}"><i class="fa-solid fa-eye"></i></button>
+                        <button class="btn-icon add-to-cart-btn" data-id="${dish.id}" title="Add to Cart"><i class="fa-solid fa-plus"></i></button>
                     </div>
                 </div>
             `;
@@ -212,6 +228,14 @@ function initMenuRender() {
             btn.addEventListener("click", (e) => {
                 const dishId = e.currentTarget.getAttribute("data-id");
                 openDishModal(dishId);
+            });
+        });
+
+        // Re-attach add to cart listeners
+        document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const dishId = e.currentTarget.getAttribute("data-id");
+                addToCart(dishId);
             });
         });
     }
@@ -242,6 +266,205 @@ function initMenuRender() {
             openDishModal(dishId);
         });
     });
+
+    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const dishId = e.currentTarget.getAttribute("data-id");
+            addToCart(dishId);
+        });
+    });
+}
+
+/* Interactive Order Cart System */
+function initCartSystem() {
+    const cartToggleBtn = document.getElementById("cartToggleBtn");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartCloseBtn = document.getElementById("cartCloseBtn");
+
+    if (cartToggleBtn && cartOverlay) {
+        cartToggleBtn.addEventListener("click", () => cartOverlay.classList.add("active"));
+        cartCloseBtn.addEventListener("click", () => cartOverlay.classList.remove("active"));
+
+        cartOverlay.addEventListener("click", (e) => {
+            if (e.target === cartOverlay) cartOverlay.classList.remove("active");
+        });
+    }
+
+    updateCartUI();
+}
+
+function addToCart(dishId) {
+    const dish = menuDishes.find(d => d.id === dishId);
+    if (!dish) return;
+
+    const existing = cart.find(item => item.id === dishId);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ ...dish, quantity: 1 });
+    }
+
+    updateCartUI();
+
+    // Open drawer automatically
+    const cartOverlay = document.getElementById("cartOverlay");
+    if (cartOverlay) cartOverlay.classList.add("active");
+}
+
+function updateCartUI() {
+    const cartBadge = document.getElementById("cartBadge");
+    const cartContainer = document.getElementById("cartItemsContainer");
+    const subtotalEl = document.getElementById("cartSubtotal");
+    const taxEl = document.getElementById("cartTax");
+    const totalEl = document.getElementById("cartTotal");
+    const whatsappBtn = document.getElementById("cartSendWhatsappBtn");
+
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if (cartBadge) cartBadge.textContent = totalCount;
+
+    if (!cartContainer) return;
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = `
+            <div class="text-center py-5">
+                <i class="fa-solid fa-basket-shopping text-muted fa-3x mb-3"></i>
+                <h4 style="color:var(--text-muted);">Your cart is empty</h4>
+                <p class="text-muted" style="font-size:0.85rem;">Add some mouthwatering Thai dishes from our menu!</p>
+            </div>
+        `;
+        if (subtotalEl) subtotalEl.textContent = "RM 0.00";
+        if (taxEl) taxEl.textContent = "RM 0.00";
+        if (totalEl) totalEl.textContent = "RM 0.00";
+        if (whatsappBtn) {
+            whatsappBtn.classList.add("disabled");
+            whatsappBtn.setAttribute("href", "#");
+        }
+        return;
+    }
+
+    cartContainer.innerHTML = "";
+    let subtotal = 0;
+    let orderSummaryText = "Hi Nyaman Cafe 88! I would like to order the following for takeaway/delivery:\n\n";
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        orderSummaryText += `• ${item.quantity}x ${item.title} (RM ${itemTotal.toFixed(2)})\n`;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <div class="cart-item-info">
+                <h5 class="cart-item-title">${item.title}</h5>
+                <span class="cart-item-price">RM ${item.price.toFixed(2)}</span>
+                <div class="cart-item-qty">
+                    <button class="qty-btn" data-id="${item.id}" data-action="dec">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="qty-btn" data-id="${item.id}" data-action="inc">+</button>
+                </div>
+            </div>
+        `;
+        cartContainer.appendChild(div);
+    });
+
+    const sst = subtotal * 0.06;
+    const finalTotal = subtotal + sst;
+
+    orderSummaryText += `\nSubtotal: RM ${subtotal.toFixed(2)}\nSST (6%): RM ${sst.toFixed(2)}\nTotal Amount: RM ${finalTotal.toFixed(2)}`;
+
+    if (subtotalEl) subtotalEl.textContent = `RM ${subtotal.toFixed(2)}`;
+    if (taxEl) taxEl.textContent = `RM ${sst.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `RM ${finalTotal.toFixed(2)}`;
+
+    if (whatsappBtn) {
+        whatsappBtn.classList.remove("disabled");
+        whatsappBtn.setAttribute("href", `https://wa.me/60123456789?text=${encodeURIComponent(orderSummaryText)}`);
+    }
+
+    // Attach quantity button listeners
+    document.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const id = e.currentTarget.getAttribute("data-id");
+            const action = e.currentTarget.getAttribute("data-action");
+            const targetItem = cart.find(i => i.id === id);
+
+            if (targetItem) {
+                if (action === "inc") {
+                    targetItem.quantity += 1;
+                } else if (action === "dec") {
+                    targetItem.quantity -= 1;
+                    if (targetItem.quantity <= 0) {
+                        cart = cart.filter(i => i.id !== id);
+                    }
+                }
+                updateCartUI();
+            }
+        });
+    });
+}
+
+/* Interactive Thai Flavor Finder Quiz */
+function initFlavorQuiz() {
+    const quizContainer = document.getElementById("quizContainer");
+    if (!quizContainer) return;
+
+    let userAnswers = {};
+    const steps = quizContainer.querySelectorAll(".quiz-step");
+    const resultCard = document.getElementById("quizResult");
+    const recommendCard = document.getElementById("recommendCard");
+    const resetBtn = document.getElementById("quizResetBtn");
+
+    document.querySelectorAll(".quiz-opt-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const key = e.currentTarget.getAttribute("data-key");
+            const val = e.currentTarget.getAttribute("data-val");
+            userAnswers[key] = val;
+
+            const currentStep = e.currentTarget.closest(".quiz-step");
+            const currentStepNum = parseInt(currentStep.getAttribute("data-step"));
+
+            currentStep.classList.remove("active");
+
+            if (currentStepNum < 3) {
+                const nextStep = quizContainer.querySelector(`.quiz-step[data-step="${currentStepNum + 1}"]`);
+                if (nextStep) nextStep.classList.add("active");
+            } else {
+                // Calculate match
+                showRecommendation();
+            }
+        });
+    });
+
+    function showRecommendation() {
+        // Find best matching dish
+        const matched = menuDishes.find(d => d.category === userAnswers.base) || menuDishes[0];
+
+        if (recommendCard && resultCard) {
+            recommendCard.innerHTML = `
+                <img src="${matched.image}" alt="${matched.title}" style="width: 110px; height: 110px; border-radius: 12px; object-fit: cover;">
+                <div style="text-align: left; flex-grow: 1;">
+                    <h3 style="font-size: 1.4rem; color: var(--color-gold); margin-bottom: 4px;">${matched.title}</h3>
+                    <p class="text-muted" style="font-size: 0.88rem; margin-bottom: 10px;">${matched.desc}</p>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <span class="text-gold" style="font-weight:700; font-size:1.1rem;">RM ${matched.price.toFixed(2)}</span>
+                        <button class="btn btn-sm btn-gold" onclick="addToCart('${matched.id}')"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            resultCard.style.display = "block";
+        }
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+            userAnswers = {};
+            if (resultCard) resultCard.style.display = "none";
+            steps.forEach(s => s.classList.remove("active"));
+            steps[0].classList.add("active");
+        });
+    }
 }
 
 /* Modal View Controls */
@@ -260,15 +483,15 @@ function openDishModal(dishId) {
             <div>
                 <span class="text-gold" style="font-size:0.8rem; letter-spacing:1px; text-transform:uppercase;">${dish.category}</span>
                 <h2 style="font-size:1.8rem; margin:6px 0;">${dish.title}</h2>
-                <div style="margin-bottom:12px;">${spicyIcons || '<span class="text-muted">Mild Spice</span>'}</div>
+                <div style="margin-bottom:12px;">${spicyIcons || '<span class="text-green">Mild Spice</span>'}</div>
                 <h3 class="text-gold" style="font-size:1.5rem; margin-bottom:14px;">RM ${dish.price.toFixed(2)}</h3>
                 <p class="text-muted" style="font-size:0.9rem; margin-bottom:16px;">${dish.desc}</p>
                 <div style="background:rgba(255,255,255,0.04); padding:12px; border-radius:12px; font-size:0.82rem; margin-bottom:20px; border: 1px solid rgba(255,255,255,0.08);">
                     <strong class="text-gold">Key Ingredients:</strong><br>${dish.ingredients}
                 </div>
-                <a href="https://wa.me/60123456789?text=Hi%20Nyaman%20Cafe%2088,%20I'd%20like%20to%20order%20${encodeURIComponent(dish.title)}" target="_blank" class="btn btn-gold btn-block">
-                    <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
-                </a>
+                <button class="btn btn-gold btn-block" onclick="addToCart('${dish.id}')">
+                    <i class="fa-solid fa-cart-plus"></i> Add to Order Cart
+                </button>
             </div>
         </div>
     `;
@@ -306,7 +529,6 @@ function initReservationForm() {
     const resDateInput = document.getElementById("resDate");
 
     if (resDateInput) {
-        // Set min date to today
         const today = new Date().toISOString().split("T")[0];
         resDateInput.setAttribute("min", today);
         resDateInput.value = today;
