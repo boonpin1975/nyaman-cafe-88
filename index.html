@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyaman Cafe 88 @ Balik Pulau | Authentic Thai Cuisine in Penang</title>
+    <meta name="description" content="Experience authentic Thai culinary excellence at Nyaman Cafe 88 @ Balik Pulau, Penang. Tom Yum Goong, Pad Thai, Green Curry, Mango Sticky Rice and pork-free Thai delicacies.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-content">
+            <span><i class="fa-solid fa-fire-flame-curry me-1"></i> <strong>Savor Authentic Thai Flavours in Balik Pulau!</strong> Pork-Free • Fresh Herbs • Open Today till 10:00 PM</span>
+            <div class="announcement-contacts">
+                <a href="tel:+60123456789"><i class="fa-solid fa-phone"></i> +60 12-345 6789</a>
+                <a href="#reservation" class="btn-sm-gold"><i class="fa-regular fa-calendar-check"></i> Book Table</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+                <div class="logo-text">
+                    <span class="brand-name">Nyaman Cafe 88</span>
+                    <span class="brand-sub">@ Balik Pulau • Thai Kitchen</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">Our Story</a>
+                <a href="#signatures" class="nav-link">Signatures</a>
+                <a href="#menu" class="nav-link">Digital Menu</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#location" class="nav-link">Find Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#reservation" class="btn btn-gold glow-effect">
+                    <i class="fa-solid fa-utensils"></i> Reserve Table
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-backdrop" style="background-image: url('images/hero_thai_feast.png');"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span> Balik Pulau's Favorite Authentic Thai Haven
+            </div>
+            
+            <h1 class="hero-title">
+                Sensational <span class="text-gold">Thai Flavours</span>,<br>
+                Crafted with Passion & Spice.
+            </h1>
+            
+            <p class="hero-subtitle">
+                Welcome to <strong>Nyaman Cafe 88</strong>. Immerse your senses in aromatic Tom Yum, velvety Green Curries, and sizzling Pad Thai—cooked fresh daily using traditional Thai spices and Balik Pulau's finest local ingredients.
+            </p>
+
+            <div class="hero-tags">
+                <span><i class="fa-solid fa-shield-halal"></i> 100% Pork-Free</span>
+                <span><i class="fa-solid fa-leaf"></i> Fresh Farm Herbs</span>
+                <span><i class="fa-solid fa-pepper-hot"></i> Adjustable Spice Levels</span>
+            </div>
+
+            <div class="hero-cta-group">
+                <a href="#menu" class="btn btn-gold btn-lg">
+                    <i class="fa-solid fa-book-open"></i> Explore Digital Menu
+                </a>
+                <a href="#reservation" class="btn btn-outline btn-lg">
+                    <i class="fa-solid fa-calendar-days"></i> Reserve a Table
+                </a>
+                <a href="https://wa.me/60123456789?text=Hi%20Nyaman%20Cafe%2088,%20I%20want%20to%20order/reserve!" target="_blank" class="btn btn-whatsapp btn-lg">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Booking
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">4.9 <i class="fa-solid fa-star text-gold"></i></span>
+                    <span class="stat-label">500+ Customer Reviews</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">Authentic Dishes</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Pork-Free Kitchen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story / About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container">
+            <div class="grid grid-2-col items-center">
+                <div class="about-images">
+                    <div class="image-card main-img-card">
+                        <img src="images/tom_yum_goong.png" alt="Tom Yum Goong Soup at Nyaman Cafe 88" class="img-responsive">
+                    </div>
+                    <div class="image-card badge-card glass-card">
+                        <i class="fa-solid fa-award icon-gold"></i>
+                        <div>
+                            <h4>Authentic Thai Chefs</h4>
+                            <p>Hand-crafted broth simmered for 6 hours daily</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <span class="section-tagline">OUR STORY & PASSION</span>
+                    <h2 class="section-title">Where Thai Culinary Art Meets <span class="text-gold">Balik Pulau Hospitality</span></h2>
+                    <p class="section-description">
+                        Nestled in the lush, serene town of Balik Pulau, <strong>Nyaman Cafe 88</strong> was born out of a love for genuine, uncompromised Thai food. "Nyaman" reflects comfort, warmth, and pure satisfaction—a feeling we deliver with every dish.
+                    </p>
+                    <p class="section-description">
+                        Our master chefs source fresh galangal, kaffir lime, krapow basil, and chili directly to ensure each bowl of Tom Yum vibrates with authentic sour, spicy, and savory harmony.
+                    </p>
+
+                    <div class="features-list">
+                        <div class="feature-box">
+                            <div class="feature-icon"><i class="fa-solid fa-pepper-hot"></i></div>
+                            <div>
+                                <h5>Rich Homemade Pastes</h5>
+                                <p>Curry pastes pounded daily from scratch using fresh roots & chili.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="feature-icon"><i class="fa-solid fa-shrimp"></i></div>
+                            <div>
+                                <h5>Catch of the Day Seafood</h5>
+                                <p>Succulent tiger prawns and fresh seabass sourced straight from Penang ports.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="feature-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div>
+                                <h5>Warm & Cozy Dining</h5>
+                                <p>Air-conditioned indoor dining & breezy garden outdoor seating.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Highlights Section -->
+    <section class="signatures-section section-padding bg-darker" id="signatures">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">MUST-TRY DELICACIES</span>
+                <h2 class="section-title">Chef’s Signature <span class="text-gold">Highlights</span></h2>
+                <p class="section-subtitle">Specially curated dishes that keep our guests coming back from all across Penang.</p>
+            </div>
+
+            <div class="grid grid-3-col signature-grid">
+                <!-- Signature 1 -->
+                <div class="dish-card signature-card">
+                    <div class="dish-badge">#1 Bestseller</div>
+                    <div class="dish-img-wrapper">
+                        <img src="images/tom_yum_goong.png" alt="Royal Tom Yum Goong" loading="lazy">
+                        <div class="dish-overlay">
+                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="tom-yum">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="dish-body">
+                        <div class="dish-meta">
+                            <span class="dish-category">Soup & Broth</span>
+                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i></span>
+                        </div>
+                        <h3 class="dish-title">Royal Tom Yum Goong</h3>
+                        <p class="dish-desc">Aromatic hot & sour soup simmered with giant tiger prawns, lemongrass, galangal, kaffir lime, and chili oil.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">RM 28.00</span>
+                            <button class="btn-icon add-to-order-btn" data-name="Royal Tom Yum Goong" data-price="28.00"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signature 2 -->
+                <div class="dish-card signature-card">
+                    <div class="dish-badge">Chef's Choice</div>
+                    <div class="dish-img-wrapper">
+                        <img src="images/pad_thai_prawn.png" alt="Signature Pad Thai Prawn" loading="lazy">
+                        <div class="dish-overlay">
+                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="pad-thai">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="dish-body">
+                        <div class="dish-meta">
+                            <span class="dish-category">Noodles</span>
+                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i></span>
+                        </div>
+                        <h3 class="dish-title">Signature Pad Thai Goong</h3>
+                        <p class="dish-desc">Wok-hei stir-fried rice noodles in tangy tamarind sauce, topped with jumbo grilled prawns, crushed peanuts & lime.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">RM 18.90</span>
+                            <button class="btn-icon add-to-order-btn" data-name="Signature Pad Thai Goong" data-price="18.90"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Signature 3 -->
+                <div class="dish-card signature-card">
+                    <div class="dish-badge">Customer Favorite</div>
+                    <div class="dish-img-wrapper">
+                        <img src="images/green_curry_chicken.png" alt="Thai Green Curry Chicken" loading="lazy">
+                        <div class="dish-overlay">
+                            <button class="btn btn-sm btn-gold view-dish-btn" data-dish="green-curry">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="dish-body">
+                        <div class="dish-meta">
+                            <span class="dish-category">Curry</span>
+                            <span class="dish-spicy"><i class="fa-solid fa-pepper-hot text-red"></i><i class="fa-solid fa-pepper-hot text-red"></i></span>
+                        </div>
+                        <h3 class="dish-title">Thai Green Curry Chicken</h3>
+                        <p class="dish-desc">Velvety coconut green curry cooked with tender chicken, Thai pea eggplants, and fresh sweet basil leaves.</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">RM 22.00</span>
+                            <button class="btn-icon add-to-order-btn" data-name="Thai Green Curry Chicken" data-price="22.00"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Interactive Menu Section -->
+    <section class="menu-section section-padding" id="menu">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">EXPLORE OUR DISHES</span>
+                <h2 class="section-title">Nyaman Cafe 88 <span class="text-gold">Digital Menu</span></h2>
+                <p class="section-subtitle">Freshly prepared to order. Filter by category or search your favorite Thai craving.</p>
+            </div>
+
+            <!-- Menu Controls -->
+            <div class="menu-controls">
+                <div class="menu-search">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="menuSearchInput" placeholder="Search dishes (e.g. Tom Yum, Mango, Green Curry)...">
+                </div>
+
+                <div class="menu-tabs" id="menuTabs">
+                    <button class="tab-btn active" data-category="all">All Dishes</button>
+                    <button class="tab-btn" data-category="soups">🌶️ Soups & Curries</button>
+                    <button class="tab-btn" data-category="noodles">🍜 Noodles & Rice</button>
+                    <button class="tab-btn" data-category="seafood">🍤 Seafood & Meats</button>
+                    <button class="tab-btn" data-category="desserts">🍨 Desserts & Drinks</button>
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid grid-3-col menu-grid" id="menuGrid">
+                <!-- Menu items injected dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Reservation Section -->
+    <section class="reservation-section section-padding bg-darker" id="reservation">
+        <div class="container">
+            <div class="reservation-wrapper glass-card">
+                <div class="grid grid-2-col items-center">
+                    <div class="reservation-info">
+                        <span class="section-tagline">TABLE BOOKINGS</span>
+                        <h2 class="section-title">Reserve Your Seat at <span class="text-gold">Nyaman Cafe 88</span></h2>
+                        <p class="section-description">
+                            Planning a family dinner, weekend getaway to Balik Pulau, or gathering with friends? Reserve your table in advance for guaranteed seating and prompt service!
+                        </p>
+
+                        <div class="reservation-perks">
+                            <div class="perk-item">
+                                <i class="fa-solid fa-circle-check icon-gold"></i> Instant confirmation via WhatsApp & Email.
+                            </div>
+                            <div class="perk-item">
+                                <i class="fa-solid fa-circle-check icon-gold"></i> Special requests (pork-free, extra mild/spicy, high chairs).
+                            </div>
+                            <div class="perk-item">
+                                <i class="fa-solid fa-circle-check icon-gold"></i> Air-conditioned indoor dining & breezy outdoor patio.
+                            </div>
+                        </div>
+
+                        <div class="contact-quick-card">
+                            <i class="fa-solid fa-headset icon-gold fa-2x"></i>
+                            <div>
+                                <h5>Need Urgent Help or Large Event Bookings?</h5>
+                                <p>Call us directly at <strong>+60 12-345 6789</strong> or message on WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation Form -->
+                    <form class="reservation-form" id="reservationForm">
+                        <h3 class="form-title">Book a Table Online</h3>
+                        
+                        <div class="form-group">
+                            <label for="resName">Full Name *</label>
+                            <input type="text" id="resName" class="form-input" placeholder="e.g. Tan Ah Hock / Sarah Ahmad" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resPhone">Phone / WhatsApp *</label>
+                                <input type="tel" id="resPhone" class="form-input" placeholder="+60 12-XXX XXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resGuests">No. of Guests *</label>
+                                <select id="resGuests" class="form-input" required>
+                                    <option value="1">1 Person</option>
+                                    <option value="2" selected>2 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="8">8 Guests</option>
+                                    <option value="10+">10+ Guests (Group)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resDate">Reservation Date *</label>
+                                <input type="date" id="resDate" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resTime">Preferred Time *</label>
+                                <select id="resTime" class="form-input" required>
+                                    <option value="11:30 AM">11:30 AM (Lunch)</option>
+                                    <option value="12:30 PM">12:30 PM (Lunch)</option>
+                                    <option value="01:30 PM">01:30 PM (Lunch)</option>
+                                    <option value="05:30 PM">05:30 PM (Dinner)</option>
+                                    <option value="07:00 PM" selected>07:00 PM (Dinner)</option>
+                                    <option value="08:30 PM">08:30 PM (Dinner)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resSeating">Seating Preference</label>
+                            <select id="resSeating" class="form-input">
+                                <option value="Indoor Air-conditioned">Indoor Air-conditioned</option>
+                                <option value="Garden Outdoor Breeze">Garden Outdoor Breeze</option>
+                                <option value="No Preference">No Preference</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resNotes">Special Requests (Optional)</label>
+                            <textarea id="resNotes" class="form-input" rows="2" placeholder="Birthday celebration, mild spice requirement, baby chair..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-block glow-effect">
+                            <i class="fa-solid fa-paper-plane"></i> Confirm Table Reservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews & Testimonials -->
+    <section class="reviews-section section-padding" id="reviews">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">HAPPY DINERS</span>
+                <h2 class="section-title">What Our Guests Say About <span class="text-gold">Nyaman Cafe 88</span></h2>
+                <p class="section-subtitle">Real experiences from Penang locals, road trippers, and food lovers.</p>
+            </div>
+
+            <div class="grid grid-3-col reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Best Tom Yum in Penang! The broth has that deep galangal and lemongrass aroma with giant fresh tiger prawns. Worth the drive to Balik Pulau every weekend!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">CW</div>
+                        <div>
+                            <h5 class="reviewer-name">Chung Wei Tech</h5>
+                            <span class="reviewer-tag">Penang Foodie Guide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Nyaman Cafe 88 is a gem! Pork-free kitchen with authentic Thai flavors. The Mango Sticky Rice was heavenly—warm sweet coconut milk over soft sticky rice!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">SA</div>
+                        <div>
+                            <h5 class="reviewer-name">Siti Aminah</h5>
+                            <span class="reviewer-tag">Local Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"The Pad Thai has incredible wok hei and generous ingredients. Paired with their rich Thai Milk Tea, it’s absolute perfection. Quick service and super cozy atmosphere!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">DL</div>
+                        <div>
+                            <h5 class="reviewer-name">David Lim</h5>
+                            <span class="reviewer-tag">Tourist from KL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="location-section section-padding bg-darker" id="location">
+        <div class="container">
+            <div class="grid grid-2-col items-center">
+                <div class="location-info">
+                    <span class="section-tagline">VISIT US IN PENANG</span>
+                    <h2 class="section-title">Where to Find <span class="text-gold">Nyaman Cafe 88</span></h2>
+                    <p class="section-description">
+                        Located along the picturesque main road of Balik Pulau, Penang. Easy parking, lush surroundings, and friendly smiles await you.
+                    </p>
+
+                    <div class="info-details-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h5>Address</h5>
+                                <p>88, Jalan Balik Pulau, 11000 Balik Pulau, Pulau Pinang, Malaysia</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h5>Opening Hours</h5>
+                                <p>Tuesday – Sunday: <strong>11:30 AM – 10:00 PM</strong><br><span class="text-muted">(Kitchen last order 09:30 PM • Closed on Mondays)</span></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h5>Reservations & Takeaway</h5>
+                                <p>+60 12-345 6789 / +60 4-866 8888</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="location-actions">
+                        <a href="https://maps.google.com/?q=Balik+Pulau+Penang" target="_blank" class="btn btn-gold">
+                            <i class="fa-solid fa-map-location-dot"></i> Get Google Directions
+                        </a>
+                        <a href="https://wa.me/60123456789?text=Hi%20Nyaman%20Cafe%2088,%20sending%20a%20location%20query" target="_blank" class="btn btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mock Interactive Map Card -->
+                <div class="map-card glass-card">
+                    <div class="map-header">
+                        <i class="fa-solid fa-map"></i> <span>Balik Pulau Location Preview</span>
+                    </div>
+                    <div class="map-viewport">
+                        <div class="map-pin">
+                            <i class="fa-solid fa-utensils"></i>
+                            <div class="pin-pulse"></div>
+                        </div>
+                        <div class="map-label">
+                            <strong>Nyaman Cafe 88</strong>
+                            <small>88 Jalan Balik Pulau, Penang</small>
+                        </div>
+                    </div>
+                    <div class="map-footer">
+                        <span><i class="fa-solid fa-square-parking text-gold"></i> Free On-Site Parking Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Nyaman Cafe 88</h3>
+                <p>Authentic Thai Cuisine @ Balik Pulau, Penang. Serving happiness, herbs, and spicy goodness daily.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/60123456789" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#signatures">Signatures</a></li>
+                    <li><a href="#menu">Digital Menu</a></li>
+                    <li><a href="#reservation">Table Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-hours">
+                <h4>Kitchen Hours</h4>
+                <p>Tue - Sun: 11:30 AM - 10:00 PM</p>
+                <p>Monday: CLOSED</p>
+                <p class="text-gold mt-2"><i class="fa-solid fa-circle-info"></i> Pork-Free Kitchen</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p>&copy; 2026 Nyaman Cafe 88 @ Balik Pulau. All Rights Reserved. Crafted with ❤️ for Thai Food Lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dish Modal -->
+    <div class="modal-overlay" id="dishModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamically populated dish detail -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation Confirmation Modal -->
+    <div class="modal-overlay" id="resSuccessModal">
+        <div class="modal-content glass-card text-center">
+            <div class="modal-icon text-gold">
+                <i class="fa-solid fa-circle-check fa-4x"></i>
+            </div>
+            <h3 class="modal-title mt-3">Reservation Received!</h3>
+            <p class="modal-desc" id="resSuccessText">Thank you! Your table at Nyaman Cafe 88 is pending confirmation.</p>
+            <div class="modal-actions mt-4">
+                <button class="btn btn-gold" id="resCloseBtn">Done</button>
+                <a href="#" id="resWhatsappLink" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Confirm via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button for Mobile -->
+    <a href="https://wa.me/60123456789?text=Hi%20Nyaman%20Cafe%2088,%20I'd%20like%20to%20reserve%20a%20table!" target="_blank" class="floating-wa-btn" aria-label="Book via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-tooltip">Reserve on WhatsApp</span>
+    </a>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
